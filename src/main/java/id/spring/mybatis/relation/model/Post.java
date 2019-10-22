@@ -12,11 +12,11 @@ import lombok.ToString;
 @ToString
 public class Post {
 	
-	private Integer id;
+	private Integer postId;
 	private String title;
 	private String content;
 	private String createdOn;
-	private User user;
+//	private User user;
 	
 	
 	

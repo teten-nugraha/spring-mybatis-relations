@@ -13,7 +13,7 @@ import lombok.ToString;
 @ToString
 public class User {
 	
-	private Integer id;
+	private Integer userId;
 	private String emailid;
 	private String name;
 	private List<Post> posts;
