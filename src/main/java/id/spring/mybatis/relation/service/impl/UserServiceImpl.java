@@ -22,8 +22,11 @@ public class UserServiceImpl implements UserService{
 	}
 
 	@Override
-	public User selectUserById(Integer id) {
-		return userRepository.selectUserById(id);
+	public Optional<User> selectUserById(Integer id) {
+		
+		Optional<User> user = Optional.of(userRepository.selectUserById(id));
+		
+		return user;
 	}
 
 	@Override

@@ -7,7 +7,7 @@ import id.spring.mybatis.relation.model.User;
 
 public interface UserService {
 	
-	User selectUserById(Integer id);
+	Optional<User> selectUserById(Integer id);
 	
 	List<User> selectAllUsers();
 	

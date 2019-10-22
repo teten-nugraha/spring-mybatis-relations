@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import id.spring.mybatis.relation.exception.ResourceNotFoundException;
 import id.spring.mybatis.relation.model.Post;
 import id.spring.mybatis.relation.model.User;
 import id.spring.mybatis.relation.service.UserService;
@@ -27,8 +28,9 @@ public class UserController {
 	}
 
 	@GetMapping("{user_id}")
-	public ResponseEntity<User> getPostsFrom1User(@PathVariable("user_id") Integer id) {
-		User user = userService.selectUserById(id);
+	public ResponseEntity<User> getPostsFrom1User(@PathVariable("user_id") Integer id) throws ResourceNotFoundException {
+		User user = userService.selectUserById(id)
+					.orElseThrow(() -> new ResourceNotFoundException("Resource Not Found"));
 		
 		return new ResponseEntity<User>(user, HttpStatus.OK);
 	}
